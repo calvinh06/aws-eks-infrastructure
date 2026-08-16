@@ -1,0 +1,7 @@
+bucket       = "replace-with-state-bucket-name"
+key          = "transaction-exchange/bootstrap/terraform.tfstate"
+region       = "us-east-2"
+kms_key_id   = "replace-with-state-kms-key-arn"
+encrypt      = true
+use_lockfile = true
+

@@ -1,0 +1,21 @@
+aws_region        = "us-east-2"
+project_name      = "transaction-exchange"
+state_bucket_name = "replace-with-a-globally-unique-state-bucket-name"
+
+trusted_principal_arns = [
+  "arn:aws:iam::123456789012:role/YourBootstrapAdministratorRole"
+]
+
+# Supply organization-approved policies. The apply role intentionally receives
+# no infrastructure-management policy by default.
+apply_managed_policy_arns = [
+  # "arn:aws:iam::123456789012:policy/TransactionExchangeTerraformApply"
+]
+
+# permissions_boundary_arn = "arn:aws:iam::123456789012:policy/YourBoundary"
+
+tags = {
+  Owner      = "platform-engineering"
+  CostCenter = "replace-me"
+}
+
