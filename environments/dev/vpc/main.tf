@@ -24,7 +24,7 @@ module "vpc" {
     us-east-2b = "10.1.64.0/20"
   }
 
-  nat_gateway_mode          = "single"
+  nat_gateway_mode           = "single"
   enable_s3_gateway_endpoint = true
 
   tags = var.tags
