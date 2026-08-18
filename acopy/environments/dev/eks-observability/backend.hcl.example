@@ -1,0 +1,7 @@
+bucket       = "transaction-exchange-terraform-state-728915381261-us-east-2"
+key          = "transaction-exchange/dev/eks-observability/terraform.tfstate"
+region       = "us-east-2"
+kms_key_id   = "arn:aws:kms:us-east-2:728915381261:key/replace-with-bootstrap-kms-key-id"
+encrypt      = true
+use_lockfile = true
+

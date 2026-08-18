@@ -1,0 +1,10 @@
+aws_region = "us-east-2"
+
+# Leave null while planning with the current lab administrator. Set this after
+# the Terraform apply role receives a reviewed VPC deployment policy.
+deployment_role_arn = null
+
+tags = {
+  Owner      = "platform-engineering"
+  CostCenter = "00000001"
+}

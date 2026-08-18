@@ -1,4 +1,4 @@
-locals {
+﻿locals {
   namespace_labels = merge({
     "app.kubernetes.io/managed-by" = "terraform"
   }, var.tags)
@@ -16,7 +16,7 @@ resource "kubernetes_namespace_v1" "ingress" {
   metadata {
     name = var.ingress_namespace
     labels = merge(local.namespace_labels, {
-      "istio-injection" = "disabled"
+      "istio-injection" = "enabled"
     })
   }
 }

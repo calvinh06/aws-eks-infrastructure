@@ -1,0 +1,13 @@
+aws_region   = "us-east-2"
+cluster_name = "transaction-exchange-dev"
+keda_version = "2.20.2"
+
+# deployment_role_arn = "arn:aws:iam::728915381261:role/transaction-exchange-terraform-apply"
+
+tags = {
+  Owner       = "platform-engineering"
+  Environment = "dev"
+  Project     = "transaction-exchange"
+  CostCenter  = "00000001"
+}
+
