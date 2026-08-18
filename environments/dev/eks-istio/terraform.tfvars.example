@@ -1,0 +1,16 @@
+aws_region    = "us-east-2"
+cluster_name  = "transaction-exchange-dev"
+istio_version = "1.30.3"
+
+# ClusterIP supports port-forward testing without a paid AWS load balancer.
+gateway_service_type    = "ClusterIP"
+install_ingress_gateway = true
+
+# deployment_role_arn = "arn:aws:iam::728915381261:role/transaction-exchange-terraform-apply"
+
+tags = {
+  Owner       = "platform-engineering"
+  Environment = "dev"
+  Project     = "transaction-exchange"
+  CostCenter  = "00000001"
+}

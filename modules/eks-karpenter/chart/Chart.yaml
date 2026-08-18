@@ -1,0 +1,5 @@
+apiVersion: v2
+name: karpenter-configuration
+description: Transaction Exchange Karpenter EC2NodeClass and NodePool
+type: application
+version: 0.1.0

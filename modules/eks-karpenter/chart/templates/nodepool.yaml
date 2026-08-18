@@ -1,0 +1,37 @@
+apiVersion: karpenter.sh/v1
+kind: NodePool
+metadata:
+  name: {{ .Values.nodePoolName }}
+spec:
+  template:
+    metadata:
+      labels:
+{{ toYaml .Values.nodeLabels | indent 8 }}
+    spec:
+      expireAfter: {{ .Values.expireAfter }}
+      nodeClassRef:
+        group: karpenter.k8s.aws
+        kind: EC2NodeClass
+        name: {{ .Values.nodeClassName }}
+      requirements:
+        - key: kubernetes.io/arch
+          operator: In
+          values: [amd64]
+        - key: kubernetes.io/os
+          operator: In
+          values: [linux]
+        - key: karpenter.sh/capacity-type
+          operator: In
+          values: [on-demand]
+        - key: node.kubernetes.io/instance-type
+          operator: In
+          values:
+{{ toYaml .Values.instanceTypes | indent 12 }}
+  disruption:
+    consolidationPolicy: WhenEmptyOrUnderutilized
+    consolidateAfter: {{ .Values.consolidationAfter }}
+    budgets:
+      - nodes: "20%"
+  limits:
+    cpu: {{ .Values.cpuLimit | quote }}
+    memory: {{ .Values.memoryLimit | quote }}

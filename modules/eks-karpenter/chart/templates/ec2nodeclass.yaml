@@ -1,0 +1,32 @@
+apiVersion: karpenter.k8s.aws/v1
+kind: EC2NodeClass
+metadata:
+  name: {{ .Values.nodeClassName }}
+spec:
+  amiFamily: AL2023
+  amiSelectorTerms:
+    - alias: {{ .Values.amiAlias | quote }}
+  instanceProfile: {{ .Values.instanceProfile | quote }}
+  subnetSelectorTerms:
+    - tags:
+        karpenter.sh/discovery: {{ .Values.clusterName | quote }}
+  securityGroupSelectorTerms:
+{{- range .Values.securityGroupIds }}
+    - id: {{ . | quote }}
+{{- end }}
+  metadataOptions:
+    httpEndpoint: enabled
+    httpProtocolIPv6: disabled
+    httpPutResponseHopLimit: 1
+    httpTokens: required
+  blockDeviceMappings:
+    - deviceName: /dev/xvda
+      ebs:
+        volumeSize: {{ .Values.rootVolumeSize }}
+        volumeType: gp3
+        encrypted: true
+        deleteOnTermination: true
+  tags:
+    Name: {{ printf "%s-karpenter" .Values.clusterName | quote }}
+    eks:eks-cluster-name: {{ .Values.clusterName | quote }}
+    kubernetes.io/cluster/{{ .Values.clusterName }}: owned

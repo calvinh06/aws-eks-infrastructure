@@ -1,0 +1,13 @@
+clusterName: ""
+nodeClassName: default
+nodePoolName: default
+instanceProfile: ""
+securityGroupIds: []
+amiAlias: al2023@latest
+instanceTypes: []
+cpuLimit: "20"
+memoryLimit: 80Gi
+consolidationAfter: 1m
+expireAfter: 168h
+rootVolumeSize: 30Gi
+nodeLabels: {}

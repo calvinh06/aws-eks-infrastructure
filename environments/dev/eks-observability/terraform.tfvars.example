@@ -1,0 +1,14 @@
+aws_region          = "us-east-2"
+deployment_role_arn = null
+chart_version        = null
+prometheus_retention = "2d"
+prometheus_storage_enabled = false
+prometheus_storage_size    = "20Gi"
+grafana_storage_enabled    = false
+grafana_storage_size       = "10Gi"
+storage_class_name         = "gp2"
+tags = {
+  Owner      = "platform-engineering"
+  CostCenter = "00000001"
+}
+

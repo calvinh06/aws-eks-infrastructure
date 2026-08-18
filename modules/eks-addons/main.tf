@@ -30,7 +30,7 @@ resource "aws_iam_role" "ebs_csi" {
 
 resource "aws_iam_role_policy_attachment" "ebs_csi" {
   role       = aws_iam_role.ebs_csi.name
-  policy_arn = "arn:${data.aws_partition.current.partition}:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicyV2"
+  policy_arn = "arn:${data.aws_partition.current.partition}:iam::aws:policy/AmazonEBSCSIDriverPolicyV2"
 }
 
 data "aws_iam_policy_document" "ebs_kms" {
@@ -127,3 +127,4 @@ resource "aws_eks_addon" "ebs_csi" {
   ]
   tags = var.tags
 }
+

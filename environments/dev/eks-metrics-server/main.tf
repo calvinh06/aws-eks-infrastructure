@@ -7,7 +7,7 @@ data "aws_eks_cluster" "this" {
 }
 
 module "metrics_server" {
-  source = "../../../modules/metrics-server"
+  source = "../../../modules/eks-metrics-server"
 
   chart_version   = var.chart_version
   replicas        = var.replicas
