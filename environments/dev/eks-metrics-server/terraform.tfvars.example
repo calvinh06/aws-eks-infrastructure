@@ -1,0 +1,23 @@
+aws_region          = "us-east-2"
+deployment_role_arn = null
+chart_version       = "3.13.1"
+replicas            = 2
+timeout_seconds     = 300
+
+resources = {
+  requests = {
+    cpu    = "100m"
+    memory = "200Mi"
+  }
+  limits = {
+    cpu    = "250m"
+    memory = "500Mi"
+  }
+}
+
+extra_args = []
+
+tags = {
+  Owner      = "platform-engineering"
+  CostCenter = "00000001"
+}
